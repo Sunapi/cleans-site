@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy:
@@ -14,7 +11,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-      pull-requests: write
 
     steps:
       - name: Checkout
@@ -32,9 +28,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Write Wrangler credentials
+        run: |
+          mkdir -p ~/.config/.wrangler/config
+          cat > ~/.config/.wrangler/config/default.toml <<EOF
+          oauth_token = "${{ secrets.CF_OAUTH_TOKEN }}"
+          refresh_token = "${{ secrets.CF_REFRESH_TOKEN }}"
+          EOF
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=cleansoo-site --branch=${{ github.ref_name }}
+        run: npx wrangler pages deploy dist --project-name=cleansoo-site --branch=main
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
