@@ -1,0 +1,148 @@
+---
+const year = new Date().getFullYear();
+
+const links = {
+  services: [
+    { label: 'Хімчистка одягу', href: '#services' },
+    { label: 'Чистка взуття', href: '#services' },
+    { label: 'Пуховики', href: '#services' },
+    { label: 'Килими', href: '#services' },
+    { label: 'Домашній текстиль', href: '#services' },
+  ],
+  company: [
+    { label: 'Як це працює', href: '#how-it-works' },
+    { label: 'Про нас', href: '#why-us' },
+    { label: 'Відгуки', href: '#reviews' },
+    { label: 'FAQ', href: '#faq' },
+  ],
+  legal: [
+    { label: 'Політика конфіденційності', href: '/privacy' },
+    { label: 'Умови використання', href: '/terms' },
+    { label: 'Публічна оферта', href: '/offer' },
+  ],
+};
+---
+
+<footer class="relative overflow-hidden" style="background: linear-gradient(135deg, #1E1A3A 0%, #2F2A55 100%);">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full opacity-10" style="background: radial-gradient(circle, #6C63B8 0%, transparent 70%);"></div>
+    <div class="absolute -bottom-20 -left-20 w-60 h-60 rounded-full opacity-10" style="background: radial-gradient(circle, #4C4388 0%, transparent 70%);"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+    <!-- Main grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-3 mb-5">
+          <img src="/logo.png" alt="CleanSoo" width="40" height="40" class="w-10 h-10" />
+          <span class="text-xl font-bold text-white">
+            Clean<span style="color: #9B91D4;">Soo</span>
+          </span>
+        </a>
+        <p class="text-white/60 text-sm leading-relaxed mb-6">
+          Цифровий сервіс хімчистки нового покоління. Ми забираємо турботу про речі з вашого життя.
+        </p>
+
+        <!-- Social links -->
+        <div class="flex items-center gap-3">
+          <a href="https://instagram.com/cleansoo" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+            class="w-10 h-10 rounded-xl flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
+            style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://t.me/cleansoo" target="_blank" rel="noopener noreferrer" aria-label="Telegram"
+            class="w-10 h-10 rounded-xl flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
+            style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </a>
+          <a href="viber://chat?number=380XXXXXXXXX" aria-label="Viber"
+            class="w-10 h-10 rounded-xl flex items-center justify-center text-white/60 hover:text-white transition-all duration-200"
+            style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.4 0C5.5 0 .9 4.4.9 9.8c0 3.1 1.5 5.9 3.9 7.8v3.6c0 .3.3.5.6.4l3.5-1.5c.8.2 1.7.3 2.5.3 5.9 0 10.5-4.4 10.5-9.8C22 4.4 17.3 0 11.4 0zm5.5 14.1c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.1-1-3.3-1.5-5.4-4.9-5.6-5.1-.2-.3-1.5-2-.1-3.6.3-.4.8-.6 1.3-.6h.4c.4 0 .8.2 1 .6l1 2.3c.1.3 0 .7-.2 1l-.5.6c-.1.2-.1.4 0 .6.4.7 1.1 1.5 1.9 2 .8.5 1.7.9 2.4 1 .2 0 .4-.1.5-.3l.4-.6c.3-.4.7-.5 1.1-.3l2.2 1.1c.4.2.6.6.5 1v.6h.2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Послуги</h3>
+        <ul class="space-y-2.5">
+          {links.services.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Компанія</h3>
+        <ul class="space-y-2.5">
+          {links.company.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Контакти</h3>
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:+380XXXXXXXXX" class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              +38 (0XX) XXX-XX-XX
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@cleansoo.com.ua" class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              info@cleansoo.com.ua
+            </a>
+          </li>
+          <li class="flex items-center gap-2 text-sm text-white/60">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Пн–Сб: 9:00–18:00
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-white/10 pt-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-white/40">
+          © {year} CleanSoo. Всі права захищено.
+        </p>
+        <div class="flex items-center gap-4">
+          {links.legal.map((link) => (
+            <a href={link.href} class="text-xs text-white/40 hover:text-white/70 transition-colors duration-200">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

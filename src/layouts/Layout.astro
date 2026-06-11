@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'CleanSoo — Хімчистка з доставкою по всій Україні',
+  description = 'Професійна хімчистка одягу, взуття, килимів та текстилю з безкоштовною доставкою Новою Поштою. Замовте онлайн за 1 хвилину — ми заберемо, почистимо та повернемо як нові.',
+  image = '/og-image.jpg',
+  canonical = 'https://cleansoo.com.ua',
+} = Astro.props;
+
+const fullTitle = title.includes('CleanSoo') ? title : `${title} | CleanSoo`;
+---
+
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2F2A55" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:site_name" content="CleanSoo" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CleanSoo",
+        "description": "Професійна хімчистка з доставкою по всій Україні",
+        "url": "https://cleansoo.com.ua",
+        "telephone": "+380-XX-XXX-XX-XX",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "UA"
+        },
+        "serviceType": "Хімчистка",
+        "areaServed": "Україна",
+        "priceRange": "$$"
+      }
+    </script>
+
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="antialiased">
+    <slot />
+
+    <!-- Scroll reveal animation script -->
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

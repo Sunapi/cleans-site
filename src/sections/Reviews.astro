@@ -1,0 +1,223 @@
+---
+const reviews = [
+  {
+    name: 'Олена Ковальчук',
+    city: 'Київ',
+    avatar: 'О',
+    rating: 5,
+    text: 'Нарешті знайшла сервіс, якому можна довіряти! Відправила дубльонку через Нову Пошту — повернули як нову. Жодних плям, запах свіжий. Рекомендую всім подругам!',
+    service: 'Дубльонка',
+    date: 'Листопад 2024',
+    color: '#6C63B8',
+  },
+  {
+    name: 'Максим Петренко',
+    city: 'Харків',
+    avatar: 'М',
+    rating: 5,
+    text: 'Взяв послугу для чистки ділового костюму перед важливою зустріччю. Результат приголомшив — виглядає краще, ніж коли купував. Зручно, швидко, якісно.',
+    service: 'Діловий костюм',
+    date: 'Жовтень 2024',
+    color: '#4C4388',
+  },
+  {
+    name: 'Наталія Шевченко',
+    city: 'Львів',
+    avatar: 'Н',
+    rating: 5,
+    text: 'Чистила білі кросівки Nike. Думала вже не відмиються — але вони прийшли сліпучо білими! Дуже задоволена якістю та швидкістю. Буду постійним клієнтом.',
+    service: 'Кросівки Nike',
+    date: 'Грудень 2024',
+    color: '#2F2A55',
+  },
+  {
+    name: 'Андрій Бондаренко',
+    city: 'Дніпро',
+    avatar: 'А',
+    rating: 5,
+    text: 'Пуховик виглядав жахливо після зими — жирні плями, запах. Після CheanSoo — як новенький із магазину. Зручна відправка, гарна упаковка, постійно інформували про статус.',
+    service: 'Пуховик',
+    date: 'Січень 2025',
+    color: '#6C63B8',
+  },
+  {
+    name: 'Ірина Мельник',
+    city: 'Одеса',
+    avatar: 'І',
+    rating: 5,
+    text: 'Замовила чистку дитячих речей — іграшки та одяг. Дуже важливо, щоб засоби були безпечними, і вони використовують сертифіковану хімію. Дитина задоволена, я ще більше!',
+    service: 'Дитячі речі',
+    date: 'Лютий 2025',
+    color: '#4C4388',
+  },
+  {
+    name: 'Сергій Тимошенко',
+    city: 'Запоріжжя',
+    avatar: 'С',
+    rating: 5,
+    text: 'Відправив через Нову Пошту, навіть не треба було нікуди їхати. Все просто, прозоро, без зайвих дзвінків. Ціна адекватна за таку якість. Дякую команді CleanSoo!',
+    service: 'Зимове пальто',
+    date: 'Березень 2025',
+    color: '#2F2A55',
+  },
+];
+---
+
+<section id="reviews" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #1E1A3A 0%, #2F2A55 100%);">
+  <!-- Decoration -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-20 left-20 w-64 h-64 rounded-full opacity-10"
+      style="background: radial-gradient(circle, #6C63B8 0%, transparent 70%); filter: blur(30px);"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full opacity-10"
+      style="background: radial-gradient(circle, #4C4388 0%, transparent 70%); filter: blur(40px);"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
+        style="background: rgba(108,99,184,0.2); color: #C4BFEB; border: 1px solid rgba(108,99,184,0.3);">
+        Відгуки клієнтів
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        Що кажуть про нас
+      </h2>
+      <p class="text-lg text-white/60 max-w-2xl mx-auto">
+        Понад 500 клієнтів вже довірили нам свої речі. Ось що вони думають.
+      </p>
+
+      <!-- Aggregate rating -->
+      <div class="flex items-center justify-center gap-3 mt-6">
+        <div class="flex">
+          {[1,2,3,4,5].map(() => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          ))}
+        </div>
+        <span class="text-2xl font-bold text-white">4.9</span>
+        <span class="text-white/50 text-sm">з 5 на основі 500+ відгуків</span>
+      </div>
+    </div>
+
+    <!-- Reviews slider -->
+    <div class="relative overflow-hidden" id="reviews-container">
+      <div class="flex gap-6 transition-transform duration-500 ease-out" id="reviews-track">
+        {reviews.map((review, i) => (
+          <div class="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            <div class="h-full rounded-2xl p-6 flex flex-col"
+              style="background: rgba(255,255,255,0.07); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12);">
+              <!-- Stars -->
+              <div class="flex mb-4">
+                {[...Array(review.rating)].map(() => (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+
+              <!-- Text -->
+              <p class="text-white/80 text-sm leading-relaxed flex-1 mb-5 italic">"{review.text}"</p>
+
+              <!-- Service badge -->
+              <div class="mb-4">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-medium"
+                  style="background: rgba(108,99,184,0.2); color: #C4BFEB; border: 1px solid rgba(108,99,184,0.25);">
+                  {review.service}
+                </span>
+              </div>
+
+              <!-- Author -->
+              <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                  style={`background: linear-gradient(135deg, ${review.color} 0%, ${review.color}aa 100%);`}>
+                  {review.avatar}
+                </div>
+                <div>
+                  <p class="text-white font-semibold text-sm">{review.name}</p>
+                  <p class="text-white/50 text-xs">{review.city} · {review.date}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Navigation dots -->
+    <div class="flex justify-center gap-2 mt-8" id="reviews-dots">
+      {reviews.map((_, i) => (
+        <button
+          class={`review-dot rounded-full transition-all duration-300 ${i === 0 ? 'w-8 h-2' : 'w-2 h-2'}`}
+          style={i === 0 ? 'background: #6C63B8;' : 'background: rgba(255,255,255,0.2);'}
+          data-index={i}
+          aria-label={`Відгук ${i + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('reviews-track') as HTMLElement;
+  const container = document.getElementById('reviews-container');
+  const dots = document.querySelectorAll('.review-dot');
+
+  if (!track || !container || !dots.length) {
+    // exit gracefully if elements not found
+    throw new Error('Reviews elements not found');
+  }
+
+  let current = 0;
+  let itemsPerView = 3;
+  const total = dots.length;
+
+  const getItemsPerView = () => {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  };
+
+  const goTo = (index: number) => {
+    itemsPerView = getItemsPerView();
+    const maxIndex = Math.max(0, total - itemsPerView);
+    current = Math.min(index, maxIndex);
+
+    const itemWidth = track.children[0]?.getBoundingClientRect().width || 0;
+    const gap = 24;
+    track.style.transform = `translateX(-${current * (itemWidth + gap)}px)`;
+
+    dots.forEach((dot: Element, i) => {
+      const el = dot as HTMLElement;
+      if (i === current) {
+        el.style.width = '2rem';
+        el.style.background = '#6C63B8';
+      } else {
+        el.style.width = '0.5rem';
+        el.style.background = 'rgba(255,255,255,0.2)';
+      }
+    });
+  };
+
+  dots.forEach((dot: Element, i) => {
+    dot.addEventListener('click', () => goTo(i));
+  });
+
+  // Auto-advance
+  let autoplay = setInterval(() => {
+    itemsPerView = getItemsPerView();
+    const maxIndex = Math.max(0, total - itemsPerView);
+    goTo(current >= maxIndex ? 0 : current + 1);
+  }, 4000);
+
+  container?.addEventListener('mouseenter', () => clearInterval(autoplay));
+  container?.addEventListener('mouseleave', () => {
+    autoplay = setInterval(() => {
+      itemsPerView = getItemsPerView();
+      const maxIndex = Math.max(0, total - itemsPerView);
+      goTo(current >= maxIndex ? 0 : current + 1);
+    }, 4000);
+  });
+
+  window.addEventListener('resize', () => goTo(0));
+</script>

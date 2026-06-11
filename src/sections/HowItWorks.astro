@@ -1,0 +1,106 @@
+---
+const steps = [
+  {
+    number: '01',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+    title: 'Створіть заявку',
+    description: 'Заповніть просту форму онлайн. Це займе менше хвилини — вкажіть речі та адресу.',
+    highlight: '1 хвилина',
+    color: '#6C63B8',
+  },
+  {
+    number: '02',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+    title: 'Передайте речі',
+    description: 'Відправте Новою Поштою або ми організуємо забір. Повністю безкоштовно в обидва боки.',
+    highlight: 'Безкоштовно',
+    color: '#4C4388',
+  },
+  {
+    number: '03',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+    title: 'Ми виконаємо чистку',
+    description: 'Професійне обладнання, перевірені технології. Кожна річ проходить контроль якості.',
+    highlight: '2–4 дні',
+    color: '#2F2A55',
+  },
+  {
+    number: '04',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>`,
+    title: 'Отримайте результат',
+    description: 'Ваші речі повернуться до вас чистими, свіжими й готовими до носіння. Як нові.',
+    highlight: 'Як нові',
+    color: '#6C63B8',
+  },
+];
+---
+
+<section id="how-it-works" class="py-24 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 pointer-events-none"
+    style="background: radial-gradient(circle, #6C63B8 0%, transparent 70%); transform: translate(30%, -30%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
+        style="background: #F6F5FF; color: #6C63B8; border: 1px solid rgba(108,99,184,0.2);">
+        Простий процес
+      </div>
+      <h2 class="section-title mb-4">Як це працює</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Чотири прості кроки — і ваші речі повертаються оновленими. Ніяких зайвих дій з вашого боку.
+      </p>
+    </div>
+
+    <!-- Steps grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step, index) => (
+        <div class="animate-on-scroll group relative" style={`transition-delay: ${index * 100}ms;`}>
+          <!-- Connector line (desktop) -->
+          {index < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-10 left-full w-full h-px z-0"
+              style="background: linear-gradient(90deg, rgba(108,99,184,0.3), rgba(108,99,184,0.05)); width: calc(100% - 2rem); left: calc(100% - 1rem);">
+            </div>
+          )}
+
+          <div class="card relative z-10 h-full flex flex-col group-hover:border-accent/30">
+            <!-- Number + Icon -->
+            <div class="flex items-start justify-between mb-5">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                style={`background: linear-gradient(135deg, ${step.color}15 0%, ${step.color}08 100%); color: ${step.color}; border: 1px solid ${step.color}20;`}
+                set:html={step.icon}>
+              </div>
+              <span class="text-5xl font-black opacity-8 leading-none select-none" style={`color: ${step.color}; opacity: 0.08;`}>
+                {step.number}
+              </span>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-lg font-bold text-primary mb-2">{step.title}</h3>
+            <p class="text-sm text-secondary/70 leading-relaxed flex-1 mb-4">{step.description}</p>
+
+            <!-- Highlight badge -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold w-fit"
+              style={`background: ${step.color}10; color: ${step.color}; border: 1px solid ${step.color}20;`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              {step.highlight}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-14 text-center animate-on-scroll">
+      <a href="#order" class="btn-primary text-base px-8 py-4 rounded-2xl">
+        Спробувати зараз
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

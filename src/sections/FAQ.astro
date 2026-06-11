@@ -1,0 +1,136 @@
+---
+const faqs = [
+  {
+    question: 'Як відправити речі на хімчистку?',
+    answer: 'Все просто: заповніть форму замовлення на сайті, упакуйте речі та відправте нам через Нову Пошту. Доставка в обидві сторони — повністю безкоштовна для вас.',
+  },
+  {
+    question: 'Скільки часу займає хімчистка?',
+    answer: 'Зазвичай 2–4 робочих дні з моменту отримання речей. Для складних забруднень або деліккатних тканин може знадобитися трохи більше часу. Ми повідомимо вас про терміни після огляду.',
+  },
+  {
+    question: 'Чи можна отримати речі швидше?',
+    answer: 'Так, у нас є послуга термінової хімчистки — виконуємо за 1–2 дні. Уточнюйте наявність при оформленні замовлення.',
+  },
+  {
+    question: 'Які засоби ви використовуєте?',
+    answer: 'Ми використовуємо сертифіковані професійні засоби, безпечні для людей, домашніх тварин та навколишнього середовища. Для дитячих речей застосовуємо гіпоалергенну хімію.',
+  },
+  {
+    question: 'Що якщо річ буде пошкоджена під час чистки?',
+    answer: 'Ми несемо повну матеріальну відповідальність за речі у нашій хімчистці. Перед чисткою фіксуємо стан кожного виробу, а у разі будь-яких питань — вирішуємо індивідуально на вашу користь.',
+  },
+  {
+    question: 'Чи чистите ви дорогі дизайнерські речі?',
+    answer: 'Так, ми маємо досвід роботи з преміальними брендами та деліккатними тканинами: шовк, кашемір, замша, хутро. Для таких виробів застосовуємо спеціальні технології та засоби.',
+  },
+  {
+    question: 'Як оплатити замовлення?',
+    answer: 'Оплата після отримання чистих речей. Ми приймаємо банківські перекази, оплату картою або готівкою при отриманні у Новій Пошті.',
+  },
+  {
+    question: 'У яких містах ви працюєте?',
+    answer: 'Ми приймаємо замовлення по всій Україні через Нову Пошту. Неважливо, де ви знаходитесь — ми доставимо та повернемо ваші речі без жодних доплат за доставку.',
+  },
+];
+---
+
+<section id="faq" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
+        style="background: #F6F5FF; color: #6C63B8; border: 1px solid rgba(108,99,184,0.2);">
+        Часті питання
+      </div>
+      <h2 class="section-title mb-4">У вас є питання?</h2>
+      <p class="section-subtitle max-w-xl mx-auto">
+        Зібрали відповіді на найпоширеніші запитання. Не знайшли своє — напишіть нам.
+      </p>
+    </div>
+
+    <!-- FAQ accordion -->
+    <div class="space-y-3" id="faq-container">
+      {faqs.map((faq, i) => (
+        <div class="animate-on-scroll" style={`transition-delay: ${i * 60}ms;`}>
+          <div class="faq-item rounded-2xl overflow-hidden border transition-all duration-300"
+            style="border-color: rgba(108,99,184,0.1);">
+            <button
+              class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-surface transition-colors duration-200"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-primary text-sm sm:text-base pr-2">{faq.question}</span>
+              <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
+                style="background: rgba(108,99,184,0.08); color: #6C63B8;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-secondary/70 text-sm leading-relaxed">{faq.answer}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-12 text-center animate-on-scroll">
+      <p class="text-secondary/60 text-sm mb-4">Не знайшли відповідь? Напишіть нам — відповімо швидко!</p>
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="https://t.me/cleansoo" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:opacity-80"
+          style="background: #229ED9; color: white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+          Написати в Telegram
+        </a>
+        <a href="mailto:info@cleansoo.com.ua"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 hover:opacity-80"
+          style="border-color: rgba(108,99,184,0.3); color: #6C63B8;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Написати email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item') as HTMLElement;
+      const content = item.querySelector('.faq-content') as HTMLElement;
+      const icon = item.querySelector('.faq-icon') as HTMLElement;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach((otherItem) => {
+        const otherTrigger = otherItem.querySelector('.faq-trigger');
+        const otherContent = otherItem.querySelector('.faq-content') as HTMLElement;
+        const otherIcon = otherItem.querySelector('.faq-icon') as HTMLElement;
+        if (otherItem !== item) {
+          otherTrigger?.setAttribute('aria-expanded', 'false');
+          otherContent?.classList.add('hidden');
+          if (otherIcon) otherIcon.style.transform = '';
+          otherItem.setAttribute('style', 'border-color: rgba(108,99,184,0.1);');
+        }
+      });
+
+      // Toggle current
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      content.classList.toggle('hidden');
+      if (icon) icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+      item.style.borderColor = isOpen ? 'rgba(108,99,184,0.1)' : 'rgba(108,99,184,0.35)';
+      if (!isOpen) {
+        item.style.boxShadow = '0 4px 20px rgba(108,99,184,0.1)';
+      } else {
+        item.style.boxShadow = '';
+      }
+    });
+  });
+</script>

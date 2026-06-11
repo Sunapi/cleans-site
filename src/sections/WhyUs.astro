@@ -1,0 +1,111 @@
+---
+const features = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+    title: 'Безкоштовна доставка',
+    description: 'Відправляйте та отримуйте речі через Нову Пошту без жодної доплати. Ми беремо всі витрати на себе.',
+    badge: 'Нова Пошта',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+    title: 'Замовлення за 1 хвилину',
+    description: 'Проста онлайн-форма без реєстрації. Заповнюєте один раз — і все. Ніяких дзвінків і черг.',
+    badge: 'Онлайн 24/7',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+    title: 'Контроль якості',
+    description: 'Кожна річ проходить перевірку до та після чистки. Ми фіксуємо стан і гарантуємо результат.',
+    badge: '100% контроль',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    title: 'Прозорий процес',
+    description: 'Ви знаєте де ваші речі та що з ними відбувається. Статус замовлення завжди під рукою.',
+    badge: 'Онлайн трекінг',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+    title: 'Професійне обладнання',
+    description: 'Використовуємо промислове обладнання та сертифіковані засоби, безпечні для всіх тканин.',
+    badge: 'Індустріальний рівень',
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: 'Підтримка клієнтів',
+    description: 'Відповідаємо в Telegram, Viber та Instagram. Завжди на зв\'язку, щоб допомогти вам.',
+    badge: 'Швидка відповідь',
+  },
+];
+
+const stats = [
+  { value: '500+', label: 'Задоволених клієнтів' },
+  { value: '4.9', label: 'Середній рейтинг' },
+  { value: '2–4', label: 'Днів виконання' },
+  { value: '0 грн', label: 'Вартість доставки' },
+];
+---
+
+<section id="why-us" class="py-24 relative overflow-hidden" style="background: #F6F5FF;">
+  <!-- Background -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-30"
+      style="background: radial-gradient(circle, rgba(108,99,184,0.15) 0%, transparent 70%);"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full opacity-30"
+      style="background: radial-gradient(circle, rgba(76,67,136,0.15) 0%, transparent 70%);"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
+        style="background: rgba(108,99,184,0.1); color: #6C63B8; border: 1px solid rgba(108,99,184,0.2);">
+        Чому обирають нас
+      </div>
+      <h2 class="section-title mb-4">
+        Сервіс нового покоління
+        <span class="block gradient-text">для сучасного клієнта</span>
+      </h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Ми побудували хімчистку як технологічний продукт — зручний, прозорий і без зайвих зусиль з вашого боку.
+      </p>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 animate-on-scroll">
+      {stats.map((stat) => (
+        <div class="text-center p-6 rounded-2xl"
+          style="background: white; box-shadow: 0 4px 20px rgba(47,42,85,0.08); border: 1px solid rgba(108,99,184,0.08);">
+          <p class="text-3xl md:text-4xl font-black mb-1" style="background: linear-gradient(135deg, #2F2A55, #6C63B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            {stat.value}
+          </p>
+          <p class="text-sm text-secondary/70 font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Features grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((feature, i) => (
+        <div class="animate-on-scroll group" style={`transition-delay: ${i * 80}ms;`}>
+          <div class="card h-full flex flex-col group-hover:shadow-card-hover">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                style="background: linear-gradient(135deg, #F6F5FF, #EEEDFB); color: #6C63B8; border: 1px solid rgba(108,99,184,0.15);"
+                set:html={feature.icon}>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                  <h3 class="text-base font-bold text-primary">{feature.title}</h3>
+                </div>
+                <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold"
+                  style="background: rgba(108,99,184,0.08); color: #6C63B8;">{feature.badge}</span>
+              </div>
+            </div>
+            <p class="text-sm text-secondary/70 leading-relaxed">{feature.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

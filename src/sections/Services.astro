@@ -1,0 +1,123 @@
+---
+const services = [
+  {
+    emoji: '👔',
+    title: 'Одяг',
+    description: 'Піджаки, сукні, костюми, светри, джинси та будь-який інший одяг',
+    items: ['Ділові костюми', 'Вечірні сукні', 'Светри і кардигани', 'Джинси'],
+    price: 'від 80 грн',
+    popular: false,
+  },
+  {
+    emoji: '👟',
+    title: 'Взуття',
+    description: 'Кросівки, туфлі, чоботи, мокасини — будь-яке взуття та матеріали',
+    items: ['Кросівки', 'Туфлі та черевики', 'Замшеве взуття', 'Дитяче взуття'],
+    price: 'від 150 грн',
+    popular: true,
+  },
+  {
+    emoji: '🧥',
+    title: 'Пуховики',
+    description: 'Пуховики, куртки, пальта та зимовий одяг будь-якого типу наповнення',
+    items: ['Пуховики', 'Зимові куртки', 'Пальта', 'Шуби та хутро'],
+    price: 'від 250 грн',
+    popular: false,
+  },
+  {
+    emoji: '🏠',
+    title: 'Килими',
+    description: 'Килими будь-яких розмірів та матеріалів, доріжки, ковроліни',
+    items: ['Ворсові килими', 'Безворсові', 'Паласи', 'Прикроватні'],
+    price: 'від 40 грн/м²',
+    popular: false,
+  },
+  {
+    emoji: '🛏️',
+    title: 'Домашній текстиль',
+    description: 'Подушки, ковдри, покривала, штори, скатертини та постільна білизна',
+    items: ['Подушки та ковдри', 'Штори та тюль', 'Покривала', 'Скатертини'],
+    price: 'від 100 грн',
+    popular: false,
+  },
+  {
+    emoji: '🧸',
+    title: 'Дитячі речі',
+    description: 'М\'які іграшки, дитячий одяг, рюкзаки, рюкзаки-кенгуру, каляски',
+    items: ['М\'які іграшки', 'Дитячий одяг', 'Рюкзаки', 'Підставки та каляски'],
+    price: 'від 60 грн',
+    popular: false,
+  },
+];
+---
+
+<section id="services" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-5"
+        style="background: #F6F5FF; color: #6C63B8; border: 1px solid rgba(108,99,184,0.2);">
+        Наші послуги
+      </div>
+      <h2 class="section-title mb-4">Що ми чистимо</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Від пуховиків до килимів — ми впораємося з будь-якими речами. Безпечно, якісно, з гарантією результату.
+      </p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, i) => (
+        <div class="animate-on-scroll group relative" style={`transition-delay: ${i * 80}ms;`}>
+          {service.popular && (
+            <div class="absolute -top-3 left-6 z-10 px-3 py-1 rounded-full text-xs font-bold text-white"
+              style="background: linear-gradient(135deg, #6C63B8, #9B91D4);">
+              Популярне
+            </div>
+          )}
+          <div class={`card h-full flex flex-col transition-all duration-300 ${service.popular ? 'border-accent/30' : ''}`}
+            style={service.popular ? 'border-color: rgba(108,99,184,0.3); box-shadow: 0 4px 32px rgba(108,99,184,0.15);' : ''}>
+            <!-- Emoji & Title -->
+            <div class="flex items-center gap-4 mb-4">
+              <div class="text-4xl leading-none select-none">{service.emoji}</div>
+              <div>
+                <h3 class="text-lg font-bold text-primary">{service.title}</h3>
+                <span class="text-sm font-semibold" style="color: #6C63B8;">{service.price}</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-sm text-secondary/70 leading-relaxed mb-4 flex-1">{service.description}</p>
+
+            <!-- Items list -->
+            <ul class="space-y-1.5 mb-5">
+              {service.items.map((item) => (
+                <li class="flex items-center gap-2 text-sm text-secondary/60">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6C63B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <a href="#order"
+              class="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold group-hover:opacity-100 transition-all duration-200"
+              style="background: rgba(108,99,184,0.06); color: #6C63B8; border: 1px solid rgba(108,99,184,0.15);">
+              Замовити чистку
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-hover:translate-x-1">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note -->
+    <p class="text-center text-sm text-secondary/50 mt-8 animate-on-scroll">
+      Не знайшли свою позицію? <a href="#order" class="underline" style="color: #6C63B8;">Напишіть нам</a> — ми беремося за будь-які речі.
+    </p>
+  </div>
+</section>

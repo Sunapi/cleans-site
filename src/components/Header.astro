@@ -1,0 +1,134 @@
+---
+const navLinks = [
+  { href: '#how-it-works', label: 'Як це працює' },
+  { href: '#services', label: 'Послуги' },
+  { href: '#why-us', label: 'Про нас' },
+  { href: '#reviews', label: 'Відгуки' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group" aria-label="CleanSoo — на головну">
+        <img
+          src="/logo.png"
+          alt="CleanSoo"
+          width="40"
+          height="40"
+          class="w-9 h-9 md:w-10 md:h-10 transition-transform duration-300 group-hover:scale-110"
+        />
+        <span class="text-xl font-bold text-white tracking-tight">
+          Clean<span class="text-accent-glow">Soo</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="px-4 py-2 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-all duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-3">
+        <a
+          href="#order"
+          class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300"
+          style="background: linear-gradient(135deg, #4C4388 0%, #6C63B8 100%); box-shadow: 0 4px 20px rgba(108,99,184,0.4);"
+        >
+          Замовити
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all"
+          aria-label="Відкрити меню"
+          aria-expanded="false"
+        >
+          <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-xl hover:bg-white/10 transition-all duration-200"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#order"
+        class="mt-2 btn-primary text-sm mobile-nav-link"
+      >
+        Замовити хімчистку
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]') as HTMLElement;
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  // Scroll behavior
+  let lastScrollY = 0;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 20) {
+      header.style.background = 'rgba(30, 26, 58, 0.9)';
+      header.style.backdropFilter = 'blur(20px)';
+      header.style.webkitBackdropFilter = 'blur(20px)';
+      header.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+    } else {
+      header.style.background = 'transparent';
+      header.style.backdropFilter = 'none';
+      header.style.webkitBackdropFilter = 'none';
+      header.style.borderBottom = 'none';
+    }
+    lastScrollY = scrollY;
+  });
+
+  // Mobile menu toggle
+  mobileMenuToggle?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    menuIconOpen?.classList.toggle('hidden', !isOpen);
+    menuIconClose?.classList.toggle('hidden', isOpen as boolean);
+    mobileMenuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+    });
+  });
+</script>

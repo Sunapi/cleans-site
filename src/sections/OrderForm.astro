@@ -1,0 +1,202 @@
+---
+---
+
+<section id="order" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #2F2A55 0%, #4C4388 50%, #6C63B8 100%);">
+  <!-- Background effects -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-15"
+      style="background: radial-gradient(circle, #9B91D4 0%, transparent 70%); transform: translate(30%, -30%);"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-10"
+      style="background: radial-gradient(circle, #2F2A55 0%, transparent 70%); transform: translate(-30%, 30%);"></div>
+
+    <!-- Grid -->
+    <svg class="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid2" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid2)"/>
+    </svg>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: Text content -->
+      <div class="text-center lg:text-left animate-on-scroll">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
+          style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2);">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
+          Приймаємо замовлення
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+          Поверніть собі час
+          <span class="block" style="opacity: 0.85;">для важливого</span>
+        </h2>
+
+        <p class="text-lg text-white/70 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+          Заповніть форму прямо зараз. Ми зв'яжемося з вами протягом години та організуємо все інше.
+        </p>
+
+        <!-- Benefits -->
+        <div class="space-y-4">
+          {[
+            'Безкоштовна доставка в обидва боки',
+            'Результат гарантовано або повертаємо кошти',
+            'Повідомлення на кожному етапі',
+          ].map((benefit) => (
+            <div class="flex items-center gap-3 justify-center lg:justify-start">
+              <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background: rgba(255,255,255,0.15);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <span class="text-white/80 text-sm font-medium">{benefit}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="animate-on-scroll">
+        <div class="rounded-3xl p-8 md:p-10"
+          style="background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 24px 80px rgba(0,0,0,0.2);">
+
+          <h3 class="text-xl font-bold text-white mb-2">Замовити хімчистку</h3>
+          <p class="text-white/60 text-sm mb-6">Заповніть форму — зв'яжемося протягом 1 год</p>
+
+          <form id="order-form" class="space-y-4" novalidate>
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-white/80 mb-1.5">Ваше ім'я</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Як до вас звертатися?"
+                class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; placeholder-color: rgba(255,255,255,0.4);"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-white/80 mb-1.5">Номер телефону</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="+38 (0XX) XXX-XX-XX"
+                class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;"
+              />
+            </div>
+
+            <!-- Service select -->
+            <div>
+              <label for="service" class="block text-sm font-medium text-white/80 mb-1.5">Що потрібно почистити?</label>
+              <select
+                id="service"
+                name="service"
+                class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 cursor-pointer"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;"
+              >
+                <option value="" style="background: #2F2A55;">Оберіть тип речей</option>
+                <option value="clothing" style="background: #2F2A55;">Одяг</option>
+                <option value="shoes" style="background: #2F2A55;">Взуття</option>
+                <option value="jacket" style="background: #2F2A55;">Пуховик / Куртка</option>
+                <option value="carpet" style="background: #2F2A55;">Килим</option>
+                <option value="textile" style="background: #2F2A55;">Домашній текстиль</option>
+                <option value="kids" style="background: #2F2A55;">Дитячі речі</option>
+                <option value="other" style="background: #2F2A55;">Інше</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-white/80 mb-1.5">Коментар <span class="text-white/40">(необов'язково)</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows={3}
+                placeholder="Опишіть речі або забруднення..."
+                class="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 resize-none"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;"
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              id="submit-btn"
+              class="w-full py-4 rounded-2xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2"
+              style="background: white; color: #2F2A55; box-shadow: 0 8px 32px rgba(0,0,0,0.2);"
+            >
+              <span id="btn-text">Надіслати замовлення</span>
+              <svg id="btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+
+            <p class="text-center text-white/40 text-xs">
+              Натискаючи кнопку, ви погоджуєтесь з
+              <a href="/privacy" class="underline hover:text-white/70 transition-colors">Політикою конфіденційності</a>
+            </p>
+          </form>
+
+          <!-- Success state (hidden) -->
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center"
+              style="background: rgba(34,197,94,0.2); border: 2px solid rgba(34,197,94,0.4);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">Замовлення прийнято!</h4>
+            <p class="text-white/60 text-sm">Ми зв'яжемося з вами протягом години. Дякуємо за довіру!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('order-form') as HTMLFormElement;
+  const successEl = document.getElementById('form-success');
+  const btnText = document.getElementById('btn-text');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  // Input focus styles
+  document.querySelectorAll('#order-form input, #order-form textarea, #order-form select').forEach((el) => {
+    el.addEventListener('focus', () => {
+      (el as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+      (el as HTMLElement).style.background = 'rgba(255,255,255,0.15)';
+    });
+    el.addEventListener('blur', () => {
+      (el as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)';
+      (el as HTMLElement).style.background = 'rgba(255,255,255,0.1)';
+    });
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    if (btnText) btnText.textContent = 'Надсилаємо...';
+
+    // Simulate API call
+    await new Promise((r) => setTimeout(r, 1500));
+
+    form.style.display = 'none';
+    if (successEl) successEl.classList.remove('hidden');
+  });
+</script>

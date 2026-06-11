@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../sections/Hero.astro';
+import HowItWorks from '../sections/HowItWorks.astro';
+import WhyUs from '../sections/WhyUs.astro';
+import Services from '../sections/Services.astro';
+import Reviews from '../sections/Reviews.astro';
+import FAQ from '../sections/FAQ.astro';
+import OrderForm from '../sections/OrderForm.astro';
+---
+
+<Layout
+  title="CleanSoo — Хімчистка з доставкою по всій Україні"
+  description="Професійна хімчистка одягу, взуття, пуховиків та килимів. Безкоштовна доставка Новою Поштою. Замовте онлайн за 1 хвилину — ми заберемо, почистимо та повернемо як нові."
+>
+  <Header />
+  <main>
+    <Hero />
+    <HowItWorks />
+    <WhyUs />
+    <Services />
+    <Reviews />
+    <FAQ />
+    <OrderForm />
+  </main>
+  <Footer />
+</Layout>
